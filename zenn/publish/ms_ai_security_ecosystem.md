@@ -4,6 +4,10 @@ emoji: "🛡️"
 type: "tech"
 topics: ["azure", "security", "openai", "llm", "foundry"]
 published: false
+# memo: 
+# https://zenn.dev/headwaters/articles/4ba708199f684e
+# https://github.com/Azure-Samples/AI-Gateway/blob/main/labs/content-safety/README.MD
+# https://github.com/Azure-Samples/AzureAIContentSafety/blob/main/python/1.0.0/sample_analyze_image.py
 ---
 
 ## この記事について
