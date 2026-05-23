@@ -133,7 +133,14 @@ APIMは多機能ですが、すべての場面で必要なわけではありま�
 
 公式ドキュメントにも「ゲートウェイを導入することで合意したパフォーマンス目標の達成が不可能になる、またはトレードオフが許容できなくなる場合は、ゲートウェイを実装しないこと」と明示されています。
 
-また、**APIMはロードバランシングを行いません**。L7ロードバランサーとしての機能はApplication Gatewayの役割です。高可用性が必要な本番環境では、Application GatewayをAPIMの前段に置く構成が一般的です。
+**「ロードバランシング」の意味を整理しておくと：**
+
+- **APIごとに別バックエンドへルーティングする**（例：`/users` → サービスA、`/orders` → サービスB）→ これはAPIMの得意技です
+- **同一APIの複数インスタンスへ負荷を分散する**（例：同じサービスが3台あってトラフィックを均等に振る）→ これはAPIM単体では非推奨で、Application GatewayやFront Doorと組み合わせます
+
+公式ドキュメントにも「[API Management doesn't perform any load balancing, so you should use it with a load balancer, such as Azure Application Gateway](https://learn.microsoft.com/en-us/azure/architecture/microservices/design/gateway)」と明記されています。（APIMはロードバランシングを行わないため、Application GatewayなどのL7ロードバランサーと組み合わせること）
+
+なお、APIMの**バックエンドプール機能**を使えば複数バックエンドへのラウンドロビンやフェイルオーバーはある程度実現できます。OpenAI連携でエンドポイントを複数持つ構成などでよく活用されます。
 
 ---
 
@@ -238,7 +245,7 @@ APIが複数ある、または外部公開する
     → YES → APIM を検討する
     → NO  → Azure Functions の HTTPトリガーだけでも十分かもしれない
 
-ロードバランシングが主目的
+同一サービスの複数インスタンスへの負荷分散が主目的（APIルーティングではなく）
     → YES → Application Gateway / Front Door を先に検討
     → NO  → APIM が候補に入る
 
