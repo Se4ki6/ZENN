@@ -20,7 +20,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from tavily.errors import InvalidAPIKeyError
+from tavily import InvalidAPIKeyError
 
 from tavily_common import build_response_payload, create_tavily_client, emit_payload
 

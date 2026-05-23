@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-from tavily.errors import InvalidAPIKeyError
+from tavily import InvalidAPIKeyError
 
 from tavily_common import build_response_payload, create_tavily_client, dedupe_preserve_order, emit_payload
 

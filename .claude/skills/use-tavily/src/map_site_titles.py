@@ -28,7 +28,7 @@ from typing import Any, Mapping
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
-from tavily.errors import InvalidAPIKeyError
+from tavily import InvalidAPIKeyError
 
 from tavily_common import build_response_payload, create_tavily_client, dedupe_preserve_order, emit_payload
 

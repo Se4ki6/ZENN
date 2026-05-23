@@ -21,7 +21,7 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
-from tavily.errors import InvalidAPIKeyError
+from tavily import InvalidAPIKeyError
 
 from extract_url_content import run_extract_request
 from search_topic import run_search_request

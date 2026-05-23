@@ -20,7 +20,7 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any, Mapping
 
-from tavily.errors import InvalidAPIKeyError
+from tavily import InvalidAPIKeyError
 
 from tavily_common import (
     build_response_payload,
